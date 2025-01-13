@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="functions.js"></script>
+</head>
+<body>
+
+<h1>Listado de Pokemons Gen 1</h1>
+
+<!-- Search Bar -->
+<div class="search-container">
+    <input type="text" class="search-input" placeholder="Search..." id="search">
+    <button class="search-button" onclick="search()">Search</button>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Tipos</th>
+    </tr>
+    </thead>
+    <tbody id="pokemons"></tbody>
+</table>
+
+
+<div id="snorlax-div">
+    <img src="snorlax.jpg" alt="snorlax" width="500px">
+    <h3>Waking up snorlax...</h3>
+</div>
+
+</body>
+</html>
