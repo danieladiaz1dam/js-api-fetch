@@ -2,9 +2,9 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const yourServerUrl = 'https://api.ladaniwapa.es/people/';
+const yourServerUrl = 'https://joseluisasp.azurewebsites.net/API/personas/';
 
-const departamentos = ["Contabilidad", "Informatica", "Recursos Humanos"]
+const departamentos = ["Contabilidad", "Informatica", "Recursos Humanos", "Finanzas"]
 
 function deletePersona(id, nombre) {
     if (!confirm(`Are you sure you want to delete ${nombre}?`))
@@ -34,20 +34,20 @@ function getData() {
 
     // Configurar la funcion que se ejecutará una vez se tengan los datos
     xhr.onload = function () {
-        console.log("Sent")
         let tableBody = document.getElementById("pokemons");
         let data = xhr.response
+        console.log(data)
 
         data.forEach((p) => {
             // Añadir al cuerpo de la tabla
             tableBody.innerHTML += `
                 <tr id="persona-${p.id}">
-                    <td>${p.ID}</td>
-                    <td>${p.Nombre} ${p.Apellidos}</td>
-                    <td><img src="${p.Foto}" alt="${p.Nombre} ${p.Apellidos}"></td>
-                    <td>${p.Telefono}</td>
-                    <td>${p.Direccion}</td>
-                    <td>${p.Departamento}</td>
+                    <td>${p.id}</td>
+                    <td>${p.nombre} ${p.apellidos}</td>
+                    <td><img src="${p.foto}" alt="${p.nombre} ${p.apellidos}"></td>
+                    <td>${p.telefono}</td>
+                    <td>${p.direccion}</td>
+                    <td>${departamentos[p.idDepartamento]}</td>
                     <td>
                         <button onclick="deletePersona(${p.id}, '${p.nombre}')">Borrar</button>
                     </td>
